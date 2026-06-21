@@ -12,9 +12,9 @@
                 "-G",
                 "Unix Makefiles",
                 "-DCMAKE_BUILD_TYPE=Debug",
-                "-DCMAKE_C_COMPILER=${config:mingw_root}/bin/gcc.exe",
-                "-DCMAKE_CXX_COMPILER=${config:mingw_root}/bin/g++.exe",
-                "-DCMAKE_RC_COMPILER=${config:mingw_root}/bin/windres.exe",
+                "-DCMAKE_C_COMPILER=${config:mingw_root}/bin/gcc",
+                "-DCMAKE_CXX_COMPILER=${config:mingw_root}/bin/g++",
+                "-DCMAKE_RC_COMPILER=${config:mingw_root}/bin/windres",
                 "-DCMAKE_CXX_FLAGS=\"-g3 -Wall -Wextra -Wpedantic -Wno-c++98-compat -Wno-padded\""
             ]
         },
@@ -24,7 +24,7 @@
             "dependsOn": [
                 "make"
             ],
-            "command": "${config:cmake_root}/bin/cmake.exe",
+            "command": "${config:cmake_root}/bin/cmake",
             "args": [
                 "--build",
                 "${config:build_root}"

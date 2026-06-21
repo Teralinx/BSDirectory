@@ -1,6 +1,6 @@
 {
-"cmake_root": "E:/apps/cmake3.31",
-"mingw_root": "E:/apps/mingw64",
+"cmake_root": "/usr",
+"mingw_root": "/usr",
 "source_root": "${workspaceFolder}/source",
 "build_root": "${workspaceFolder}/build"
 }

@@ -9,12 +9,11 @@
             "request": "launch",
             // 调试前自动执行tasks里的完整编译流程
            "preLaunchTask": "build",
-            // 你的可执行文件路径，改成你cmake输出的exe名称
-            "program": "${config:build_root}/BSDirectory.exe",
+            "program": "${config:build_root}/BSDirectory",
             "args": [],
             "cwd": "${workspaceFolder}",
             "internalConsoleOptions": "neverOpen",
-            "miDebuggerPath": "${config:mingw_root}/bin/gdb.exe",
+            "miDebuggerPath": "${config:mingw_root}/bin/gdb",
             // 把llvm、mingw bin加入环境，保证lldb、动态库能找到
             "environment": [
                 {
