@@ -1,0 +1,41 @@
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "make",
+            "command": "E:/apps/cmake3.31/bin/cmake.exe",
+            "args": [
+                "-S",
+                "./source",
+                "-B",
+                "./build",
+                "-G",
+                "Unix Makefiles",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-DCMAKE_C_COMPILER=E:/apps/LLVM/bin/clang.exe",
+                "-DCMAKE_CXX_COMPILER=E:/apps/LLVM/bin/clang++.exe",
+                "-DCMAKE_RC_COMPILER=E:/apps/qt5.14.2/Tools/mingw730_64/bin/windres.exe",
+                "-DCMAKE_CXX_FLAGS=\"-Wall -Wextra -Wpedantic -Weverything -Wno-c++98-compat -Wno-padded -Werror\""
+            ]
+        },
+       {
+            "type": "shell",
+            "label": "build",
+            "command": "E:/apps/cmake3.31/bin/cmake.exe",
+            "args": [
+                "-S",
+                "./source",
+                "-B",
+                "./build",
+                "-G",
+                "Unix Makefiles",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-DCMAKE_C_COMPILER=E:/apps/LLVM/bin/clang.exe",
+                "-DCMAKE_CXX_COMPILER=E:/apps/LLVM/bin/clang++.exe",
+                "-DCMAKE_RC_COMPILER=E:/apps/qt5.14.2/Tools/mingw730_64/bin/windres.exe",
+                "-DCMAKE_CXX_FLAGS=\"-Wall -Wextra -Wpedantic -Weverything -Wno-c++98-compat -Wno-padded -Werror\""
+            ]
+        }        
+    ],
+    "version": "2.0.0"
+}
