@@ -13,9 +13,8 @@ PROJECT(BSDirectory)
 FILE(GLOB_RECURSE cpps CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 
 #add dependencies
-INCLUDE(FETCHCONTENT)
-
-#FetchContent_Declare(protobuf
+#INCLUDE(FETCHCONTENT)
+#FETCHCONTENT_DECLARE(protobuf
 #                     GIT_REPOSITORY https://github.com/protocolbuffers/protobuf
 #                     GIT_TAG        v35.1)
 #FETCHCONTENT_MAKEAVAILABLE(protobuf)
