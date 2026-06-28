@@ -2,14 +2,16 @@
 #include <QApplication>
 #include <QWidget>
 #include <SQLiteCpp/SQLiteCpp.h>
+#include <qcoreapplication.h>
 #include "logindialog.h"
 
 int main(int argc, char** argv){
 
 
-
+    
     try
     {
+        
         // 1. 打开数据库，不存在则自动创建
         SQLite::Database db("test.db3", SQLite::OPEN_READWRITE | SQLite::OPEN_CREATE);
        // std::cout << "SQLite version: " << db.in() << "\n";
@@ -23,7 +25,7 @@ int main(int argc, char** argv){
                 score REAL
             )
         )");
-
+        
         // 3. 事务批量插入（原子操作，出错全部回滚）
         SQLite::Transaction tx(db);
 
@@ -83,7 +85,9 @@ int main(int argc, char** argv){
     QApplication a(argc, argv);
    
     LoginDialog l;
-    l.exec();
+    QString s;
+    l.show();
+    
     a.exec();
 
     return 0;

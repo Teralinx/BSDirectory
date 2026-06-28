@@ -10,19 +10,17 @@
     "qt_bin": "${config:qt_root}/bin",
     "cxx_flags": "-g3 -Wall -Wextra -Wpedantic -Wno-c++98-compat -Wno-padded",
     "suffix": ".exe",
-
-
     //不需要改动  
     "c_compiler_exe": "${config:compiler_chain_bin}/clang${config:suffix}",
     "c++_compiler_exe": "${config:compiler_chain_bin}/clang++${config:suffix}",
     "rc_exe": "${config:compiler_chain_bin}/llvm-rc${config:suffix}",
-     "debugger_exe": "${config:compiler_chain_bin}/lldb${config:suffix}",   
+    "debugger_exe": "${config:compiler_chain_bin}/lldb${config:suffix}",
     "make_exe": "${config:make_exe_bin}/ninja${config:suffix}",
     "cmake_exe": "${config:cmake_bin}/cmake${config:suffix}",
     "source_root": "${workspaceFolder}/source",
     "build_root": "${workspaceFolder}/build",
-    "clangd.arguments": [
-        "--compile-commands-dir=${config:build_root}"
-    ],
-    "clangd.path": "${config:compiler_chain_bin}/clangd.exe"
+    "files.exclude": {
+        "**/build": true
+    }
+
 }
