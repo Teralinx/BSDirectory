@@ -12,11 +12,29 @@ PROJECT(BSDirectory)
 FILE(GLOB_RECURSE cpps CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 
 #add dependencies
-#INCLUDE(FetchContent)
-#FETCHCONTENT_DECLARE(protobuf
-#                    GIT_REPOSITORY https://github.com/protocolbuffers/protobuf
-#                     GIT_TAG        v35.1)
-#FETCHCONTENT_MAKEAVAILABLE(protobuf)
-FIND_PACKAGE(Qt5 REQUIRED COMPONENTS Widgets)
+INCLUDE(FetchContent)
+FETCHCONTENT_DECLARE(protobuf
+                    GIT_REPOSITORY https://github.com/protocolbuffers/protobuf
+                    GIT_TAG        v35.1)
+FETCHCONTENT_MAKEAVAILABLE(protobuf)
+
+
+FETCHCONTENT_DECLARE(spdlog
+                    GIT_REPOSITORY https://github.com/gabime/spdlog.git
+                    GIT_TAG        v1.17.0)
+FETCHCONTENT_MAKEAVAILABLE(spdlog)
+
+
+FETCHCONTENT_DECLARE(SQLiteCpp
+                    GIT_REPOSITORY https://github.com/SRombauts/SQLiteCpp.git
+                    GIT_TAG        3.3.3)
+FETCHCONTENT_MAKEAVAILABLE(SQLiteCpp)
+
+FIND_PACKAGE(Qt6 REQUIRED COMPONENTS Widgets)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+
+
 ADD_EXECUTABLE(${PROJECT_NAME} ${cpps})
-TARGET_LINK_LIBRARIES(${PROJECT_NAME} PRIVATE Qt5::Widgets)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} PRIVATE Qt6::Widgets SQLiteCpp)

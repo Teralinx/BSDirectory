@@ -10,10 +10,11 @@
                 "-B",
                 "${config:build_root}",
                 "-G",
-                "Unix Makefiles",
+                "Ninja",
                 "-DCMAKE_BUILD_TYPE=Debug",
-                "-DCMAKE_C_COMPILER=${config:gcc_exe}",
-                "-DCMAKE_CXX_COMPILER=${config:g++_exe}",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+                "-DCMAKE_C_COMPILER=${config:c_compiler_exe}",
+                "-DCMAKE_CXX_COMPILER=${config:c++_compiler_exe}",
                 "-DCMAKE_RC_COMPILER=${config:rc_exe}",
                 "-DCMAKE_CXX_FLAGS=\"${config:cxx_flags}\"",
                 "-DCMAKE_MAKE_PROGRAM=\"${config:make_exe}\"",
@@ -33,5 +34,10 @@
             ]
         }
     ],
+    "options": {
+        "env": {
+            "PATH": "${config:compiler_chain_bin};${env:PATH}",
+        }
+    },
     "version": "2.0.0"
 }

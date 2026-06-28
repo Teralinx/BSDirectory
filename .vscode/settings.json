@@ -1,19 +1,28 @@
 {
+    //根据本地情况设置
     "cmake_root": "E:/apps/cmake3.31",
-    "mingw_root": "E:/apps/mingw64",
-    "qt_root": "E:/apps/qt5.14.2/5.14.2/mingw73_64",
-    "cxx_flags":"-g3 -Wall -Wextra -Wpedantic -Wno-c++98-compat -Wno-padded",
-    "suffix":".exe",
+    "cmake_bin": "${config:cmake_root}/bin",
+    "compiler_chain": "E:/apps/llvm-mingw-20260616-ucrt-x86_64",
+    "compiler_chain_bin": "${config:compiler_chain}/bin",
+    "make_exe_root": "E:/apps/ninja-win",
+    "make_exe_bin": "${config:make_exe_root}",
+    "qt_root": "E:/apps/Qt/Qt6.11_LLVM",
+    "qt_bin": "${config:qt_root}/bin",
+    "cxx_flags": "-g3 -Wall -Wextra -Wpedantic -Wno-c++98-compat -Wno-padded",
+    "suffix": ".exe",
 
 
-
-    "gcc_exe":"${config:mingw_root}/bin/gcc${config:suffix}",
-    "g++_exe":"${config:mingw_root}/bin/g++${config:suffix}",
-    "rc_exe":"${config:mingw_root}/bin/windres${config:suffix}",
-    "make_exe":"${config:mingw_root}/bin/mingw32-make${config:suffix}",
-    "gdb_exe":"${config:mingw_root}/bin/gdb${config:suffix}",   
-    "cmake_exe":"${config:cmake_root}/bin/cmake${config:suffix}",
+    //不需要改动  
+    "c_compiler_exe": "${config:compiler_chain_bin}/clang${config:suffix}",
+    "c++_compiler_exe": "${config:compiler_chain_bin}/clang++${config:suffix}",
+    "rc_exe": "${config:compiler_chain_bin}/llvm-rc${config:suffix}",
+     "debugger_exe": "${config:compiler_chain_bin}/lldb${config:suffix}",   
+    "make_exe": "${config:make_exe_bin}/ninja${config:suffix}",
+    "cmake_exe": "${config:cmake_bin}/cmake${config:suffix}",
     "source_root": "${workspaceFolder}/source",
-    "build_root": "${workspaceFolder}/build"
-    
+    "build_root": "${workspaceFolder}/build",
+    "clangd.arguments": [
+        "--compile-commands-dir=${config:build_root}"
+    ],
+    "clangd.path": "${config:compiler_chain_bin}/clangd.exe"
 }

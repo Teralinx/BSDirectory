@@ -2,25 +2,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug",
-            "type": "cppdbg",
-            "MIMode": "gdb",
-
+            "name": "LLDB Debug",
+            "type": "lldb",
             "request": "launch",
-            // 调试前自动执行tasks里的完整编译流程
-           "preLaunchTask": "build",
-            "program": "${config:build_root}/BSDirectory",
+            "preLaunchTask": "build",
+            "program": "${config:build_root}/BSDirectory${config:suffix}",
             "args": [],
-            "cwd": "${workspaceFolder}",
+            "cwd": "${config:build_root}",
             "internalConsoleOptions": "neverOpen",
-            "miDebuggerPath": "${config:gdb_exe}",
-            // 把llvm、mingw bin加入环境，保证lldb、动态库能找到
-            "environment": [
+            "env": 
                 {
-                    "name": "PATH",
-                    "value": "${config:mingw_root}/bin;${config:qt_root}/bin;${env:PATH}"
-                }
-            ]
+                    "PATH": "${config:compiler_chain_bin};${config:qt_bin};${env:PATH}"
+                }            
         }
     ]
 }
