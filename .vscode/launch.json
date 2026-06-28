@@ -13,12 +13,12 @@
             "args": [],
             "cwd": "${workspaceFolder}",
             "internalConsoleOptions": "neverOpen",
-            "miDebuggerPath": "${config:mingw_root}/bin/gdb.exe",
+            "miDebuggerPath": "${config:gdb_exe}",
             // 把llvm、mingw bin加入环境，保证lldb、动态库能找到
             "environment": [
                 {
                     "name": "PATH",
-                    "value": "${config:mingw_root}/bin;${env:PATH}"
+                    "value": "${config:mingw_root}/bin;${config:qt_root}/bin;${env:PATH}"
                 }
             ]
         }

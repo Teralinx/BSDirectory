@@ -2,7 +2,18 @@
     "cmake_root": "E:/apps/cmake3.31",
     "mingw_root": "E:/apps/mingw64",
     "qt_root": "E:/apps/qt5.14.2/5.14.2/mingw73_64",
+    "cxx_flags":"-g3 -Wall -Wextra -Wpedantic -Wno-c++98-compat -Wno-padded",
+    "suffix":".exe",
 
+
+
+    "gcc_exe":"${config:mingw_root}/bin/gcc${config:suffix}",
+    "g++_exe":"${config:mingw_root}/bin/g++${config:suffix}",
+    "rc_exe":"${config:mingw_root}/bin/windres${config:suffix}",
+    "make_exe":"${config:mingw_root}/bin/mingw32-make${config:suffix}",
+    "gdb_exe":"${config:mingw_root}/bin/gdb${config:suffix}",   
+    "cmake_exe":"${config:cmake_root}/bin/cmake${config:suffix}",
     "source_root": "${workspaceFolder}/source",
     "build_root": "${workspaceFolder}/build"
+    
 }

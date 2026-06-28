@@ -2,19 +2,8 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "deploy",
-            "dependsOn": [
-                "make"
-            ],
-            "command": "${config:qt_root}/bin/windeployqt.exe",
-            "args": [
-                "${config:build_root}/${workspaceFolderBasename}.exe",
-            ]
-        },        
-        {
-            "type": "shell",
             "label": "make",
-            "command": "${config:cmake_root}/bin/cmake.exe",
+            "command": "${config:cmake_exe}",
             "args": [
                 "-S",
                 "${config:source_root}",
@@ -23,11 +12,11 @@
                 "-G",
                 "Unix Makefiles",
                 "-DCMAKE_BUILD_TYPE=Debug",
-                "-DCMAKE_C_COMPILER=${config:mingw_root}/bin/gcc.exe",
-                "-DCMAKE_CXX_COMPILER=${config:mingw_root}/bin/g++.exe",
-                "-DCMAKE_RC_COMPILER=${config:mingw_root}/bin/windres.exe",
-                "-DCMAKE_CXX_FLAGS=\"-g3 -Wall -Wextra -Wpedantic -Wno-c++98-compat -Wno-padded\"",
-                "-DCMAKE_MAKE_PROGRAM=\"${config:mingw_root}/bin/mingw32-make.exe\"",
+                "-DCMAKE_C_COMPILER=${config:gcc_exe}",
+                "-DCMAKE_CXX_COMPILER=${config:g++_exe}",
+                "-DCMAKE_RC_COMPILER=${config:rc_exe}",
+                "-DCMAKE_CXX_FLAGS=\"${config:cxx_flags}\"",
+                "-DCMAKE_MAKE_PROGRAM=\"${config:make_exe}\"",
                 "-DCMAKE_PREFIX_PATH=\"${config:qt_root};${CMAKE_PREFIX_PATH}\""
             ]
         },
@@ -37,7 +26,7 @@
             "dependsOn": [
                 "make"
             ],
-            "command": "${config:cmake_root}/bin/cmake.exe",
+            "command": "${config:cmake_exe}",
             "args": [
                 "--build",
                 "${config:build_root}"
